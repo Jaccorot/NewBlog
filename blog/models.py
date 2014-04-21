@@ -4,8 +4,8 @@ from django.db import models
 
 class Tag(models.Model):
     """docstring for Tags"""
-    tag_name = models.CharField(max_length=20, blank=True)
-    create_time = models.DateTimeField(auto_now_add=True)
+    tag_name = models.CharField(max_length = 20, blank = True)
+    create_time = models.DateTimeField(auto_now_add = True)
 
     def __unicode__(self):
         return self.tag_name
@@ -13,9 +13,9 @@ class Tag(models.Model):
 
 class Author(models.Model):
     """docstring for Author"""
-    name = models.CharField(max_length=30)
-    email = models.EmailField(blank=True)
-    website = models.URLField(blank=True)
+    name = models.CharField(max_length = 30)
+    email = models.EmailField(blank = True)
+    website = models.URLField(blank = True)
 
     def __unicode__(self):
         return u'%s' % (self.name)
