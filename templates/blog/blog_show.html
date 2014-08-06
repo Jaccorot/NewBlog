@@ -1,0 +1,45 @@
+{% extends "blog_base.html" %}
+
+{% block title %} {{ blog.caption }} {% endblock %}
+
+
+{% block article %} 
+
+<div class="content">
+    <article class="content-main">
+    {% block article_title %}
+        <h2>{{ blog.caption }}</h2>
+    {% endblock %}
+    <p class="muted">
+        <i class="icon-user"></i><small> {{ blog.author }}</small>  
+        <i class="icon-time"></i><small> {{ blog.publish_time }}</small>
+    </p>
+        <section>
+        <div class="blog-content">
+            {% block article_content %}
+                {{ blog.content }}
+            {% endblock %} 
+        </div>
+    </section>
+    <section>
+        <div class="row-fluid post-info">
+            <div class="span3">
+                <p>  
+                    <i class="icon-tag"></i>
+                    {% for tag in blog.tags.all %}
+                         <small class="muted"> {{ tag }} </small>
+                    {% endfor %}
+                </p>  
+            </div>
+            <div class="span2 offset7">
+                <a href="{% url "blog:delblog" blog.id %}" title="delete"><i class="icon-trash"></i></a>
+                <a href="{% url "blog:updateblog" blog.id %}" title="edit"><i class="icon-edit"></i></a>
+                <a href="#cmt" title="comment"><i class=" icon-comment"></i></a>
+            </div>
+        </div>
+    <hr>
+    </section>    
+    </article>
+    <hr>
+</div>    
+{% endblock %}

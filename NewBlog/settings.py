@@ -40,6 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.sites',
+    'django.contrib.comments',
     'blog',
 )
 
@@ -80,13 +82,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
 
-TEMPLATE_DIRS = (
-    '/Users/caozijun/GitCode/NewBlog/templates',
-    '/Users/caozijun/GitCode/NewBlog/templates/blog',
-    )
+TEMPLATE_DIRS = [
+    os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'templates/blog'),
+    ]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    ]
