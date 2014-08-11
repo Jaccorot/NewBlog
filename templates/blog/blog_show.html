@@ -43,3 +43,32 @@
     <hr>
 </div>    
 {% endblock %}
+
+{% block script %}
+<script type="text/javascript" charset="utf-8">
+function bindPostCommentHandler() {
+    $('#comment_form form input.submit-preview').remove();
+    $('#comment_form form').submit(function() {
+        $.ajax({
+            type: "POST",
+            data: $('#comment_form form').serialize(),
+            url: "{% comment_form_target %}",
+            cache: false,
+            dataType: "html",
+            success: function(html, textStatus) {
+                $('#cmt').replaceWith(html);
+                $('#comment_form form')[0].reset();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $('#comment_form form').replaceWith('Your comment was unable to be posted at this time.  We apologise for the inconvenience.');
+            }
+        });
+        return false;
+    });
+}
+ 
+$(document).ready(function() {
+    bindPostCommentHandler();
+});
+</script> 
+{% endblock %}
