@@ -120,3 +120,7 @@ def blog_del(request, id=""):
         return HttpResponseRedirect("/blog/bloglist/")
     blogs = Blog.objects.all()
     return render_to_response("blog_list.html", {"blogs": blogs})
+
+def blog_show_comment(request, id=''):
+    blog = Blog.objects.get(id=id)
+    return render_to_response('blog_comments_show.html', {"blog": blog})

@@ -13,4 +13,5 @@ urlpatterns = patterns ('',
 	url(r'^blog/add/$', views.blog_add, name='addblog'),
 	url(r'^blog/(?P<id>\w+)/update/$', views.blog_update, name='updateblog'),
 	url(r'^blog/(?P<id>\w+)/del/$', views.blog_del, name='delblog'),
+	url(r'^blog/(?P<id>\d+)/commentshow/$', views.blog_show_comment, name='showcomment'),
 )
