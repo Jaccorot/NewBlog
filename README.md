@@ -1,2 +1,2 @@
 NewBlog
-Try to create a website with django Day 1:Create the project
+   To make a blog that with django. 
